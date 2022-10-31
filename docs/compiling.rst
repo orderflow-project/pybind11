@@ -583,12 +583,12 @@ using ``pip`` or ``conda``. If it hasn't, you can also manually specify
 ``python3-config --includes``.
 
 On macOS: the build command is almost the same but it also requires passing
-the ``-undefined dynamic_lookup`` flag so as to ignore missing symbols when
+the ``-undefined suppress -flat_namespace`` flag so as to ignore missing symbols when
 building the module:
 
 .. code-block:: bash
 
-    $ c++ -O3 -Wall -shared -std=c++11 -undefined dynamic_lookup $(python3 -m pybind11 --includes) example.cpp -o example$(python3-config --extension-suffix)
+    $ c++ -O3 -Wall -shared -std=c++11 -undefined suppress -flat_namespace $(python3 -m pybind11 --includes) example.cpp -o example$(python3-config --extension-suffix)
 
 In general, it is advisable to include several additional build parameters
 that can considerably reduce the size of the created binary. Refer to section
