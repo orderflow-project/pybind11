@@ -237,7 +237,8 @@ if(CMAKE_HOST_WIN32)
 
   # raise an error if the python libs are still not found.
   if(NOT EXISTS "${PYTHON_LIBRARY}")
-    message(FATAL_ERROR "Python libraries not found")
+    set(PYTHON_LIBRARY ${PROJECT_SOURCE_DIR}/../cpython/PCbuild/amd64/python312.lib)
+    # message(FATAL_ERROR "Python libraries not found")
   endif()
 
 else()
